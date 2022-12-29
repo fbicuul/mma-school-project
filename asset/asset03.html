@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tunde Alabo</title>
+
+    <!-- ========= CSS FILE ========== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/mma-school-project/asset/asset.css" />
+</head>
+<body>
+    <!-- ========= NAVBAR ========== -->
+    <div class="menu-bar">
+        <h1 class="logo">BD<span>PA</span></h1>
+
+        <input type="checkbox" id="check" />
+
+        <label for="check" class="check-btn"><i class="fas fa-bars"></i></label>
+
+        <ul>
+            <li><a class="active" href="/mma-school-project">Home</a></li>
+            <li><a href="/mma-school-project/table">Search</a></li>
+        </ul>
+    </div>
+
+
+
+
+    <!-- ========= TABLE RECORDS STARTS ========== -->
+    <div class="table-container">
+        <div class="heading">
+            <h4>Tunde Alabo's File</h4>
+            <img src="/mma-school-project/asset/img/icon3.jpg" alt="" />
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Date Of Birth</th>
+                    <th>Residence</th>
+                    <th>Charges</th>
+                    <th>Arrests</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td data-label="ID">01</td>
+                    <td data-label="First Name">Tunde</td>
+                    <td data-label="Last Name">Alabo</td>
+                    <td data-label="Date Of Birth">08/15/95</td>
+                    <td data-label="Residence">Benin</td>
+                    <td data-label="Charges">20</td>
+                    <td data-label="Arrests">14</td>
+                    <td data-label="Status"><span class="text-open">Released</span></td>
+                </tr>
+            </tbody>
+        </table><br /><br />
+
+        <div class="asset-thead">
+            <h5>Outstanding Warrants</h5>
+        </div><br />
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Date Issued</th>
+                    <th>Charges</th>
+                    <th>Flight Risk</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td data-label="Date Issued">01/05/2022</td>
+                    <td data-label="Charges">Driving Drunk</td>
+                    <td data-label="Flight Risk">YES</td>
+                </tr>
+
+                <tr>
+                    <td data-label="Date Issued">12/08/2022</td>
+                    <td data-label="Charges">Driving with no proof of insurance</td>
+                    <td data-label="Flight Risk">YES</td>
+                </tr>
+            </tbody>
+        </table><br /><br />
+
+        <div class="asset-thead">
+            <h5>Record Details</h5>
+        </div><br />
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Offense Date</th>
+                    <th>Offense</th>
+                    <th>Disposition (outcome)</th>
+                    <th>Offense Location</th>
+                    <th>Sentenced Penalty</th>
+                    <th>Charge Type</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td data-label="Offense Date">2022-12-13</td>
+                    <td data-label="Offense">Manufactured and distributed heroin near a school</td>
+                    <td data-label="Disposition (outcome)">Convicted as a minor</td>
+                    <td data-label="Offense Location">Benin</td>
+                    <td data-label="Sentenced Penalty">Home Confinement</td>
+                    <td data-label="Charge Type">Class 4 Felony</td>
+                </tr>
+
+                <tr>
+                    <td data-label="Offense Date">2022-12-13</td>
+                    <td data-label="Offense">Resisting Arrest</td>
+                    <td data-label="Disposition (outcome)">Convicted as a minor</td>
+                    <td data-label="Offense Location">Benin</td>
+                    <td data-label="Sentenced Penalty">Home Confinement</td>
+                    <td data-label="Charge Type">Class A Misdemeanor</td>
+                </tr>
+            </tbody>
+        </table><br /><br />
+    </div>
+    <!-- ========= TABLE RECORDS ENDS ========== -->
+    <!-- ========= JS FILE ========== -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Benin City Crime Record</title>
+
+    <!-- ========= CSS FILE ========== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <!-- ========= NAVBAR ========== -->
+    <div class="menu-bar">
+        <h1 class="logo">BD<span>PA</span></h1>
+
+        <input type="checkbox" id="check" />
+
+        <label for="check" class="check-btn"><i class="fas fa-bars"></i></label>
+
+        <ul>
+            <li><a class="active" href="/mma-school-project">Home</a></li>
+            <li><a href="/mma-school-project/about">About</a></li>
+            <li><a id="searchInp" class="se-pg" href="/mma-school-project/table">Search</a></li>
+            <li><a id="victimInp" class="vi-pg" href="/mma-school-project/victim">Victim Form</a></li>
+            <li><a id="suspectInp" class="su-pg" href="/mma-school-project/suspect">Suspect Report</a></li>
+            <li><a id="crimeInp" class="cr-pg" href="/mma-school-project/crime">Crime Report</a></li>
+            <li><a id="signoutlink" href="#"></a></li>
+            <li><a id="userlink" href="#"></a></li>
+
+        </ul>
+    </div>
+
+
+    <!-- ========= HERO SECTION ========== -->
+    <section class="container hero row">
+        <div class="content">
+            <h1 id="hh"></h1>
+            <h1>Crime Record System</h1>
+            <a href="/mma-school-project/table">
+                Click To Search File >> <i class="fas fa-folder"></i>
+            </a>
+        </div>
+
+        <div class="animate__animated animate__rollIn img">
+            <img src="images/hero.png" alt="" />
+            <span></span>
+        </div>
+    </section>
+    
+
+    <!-- ========= MAIN SECTION ========== -->
+    <section class="main">
+    </section>
+
+
+    <!-- ========= FOOTER SECTION ========== -->
+    <section class="footer">
+    </section>
+
+
+    <!-- ========= JS FILE ========== -->
+    <script src="https://kit.fontawesome.com/d7edf34ed6.js" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+
+
+    <script>
+
+        let userLink = document.getElementById('userlink')                  //For Register
+        let signOutLink = document.getElementById('signoutlink')            //Fot Signout and Login
+        let header = document.getElementById('hh')
+        let searchPage = document.getElementById('searchInp')
+        let victimPage = document.getElementById('victimInp')
+        let suspectPage = document.getElementById('suspectInp')
+        let crimePage = document.getElementById('crimeInp')
+
+        var currentUser = null
+
+        function getUserName() {
+            let keepLoggedIn = localStorage.getItem('keepLoggedIn')
+
+            if (keepLoggedIn == 'yes') {
+                currentUser = JSON.parse(localStorage.getItem('user'))
+            } else {
+                currentUser = JSON.parse(sessionStorage.getItem('user'))
+            }
+        }
+
+
+
+        function signOut() {
+            sessionStorage.removeItem('user')
+            localStorage.removeItem('user')
+            localStorage.removeItem('keepLoggedIn')
+            window.location = '/mma-school-project'
+        }
+
+
+        window.onload = function () {
+            getUserName()
+
+            if (currentUser == null) {
+                searchPage.textContent = ' '
+                searchPage.href = '#'
+
+                victimPage.textContent = ' '
+                victimPage.href = '#'
+
+                suspectPage.textContent = ' '
+                suspectPage.href = '#'
+
+                crimePage.textContent = ' '
+                crimePage.href = '#'
+
+                userLink.textContent = 'Register'
+                /*
+                userLink.classList.replace('nav-link', 'btn')
+                userLink.classList.add('btn-primary') */
+                userLink.href = '/mma-school-project/register'
+
+
+                signOutLink.textContent = 'Login'
+                /*
+                signOutLink.classList.replace('nav-link', 'btn')
+                signOutLink.classList.add('btn-success') */
+                signOutLink.href = '/mma-school-project/login'
+            } else {
+                /*
+                userLink.textContent = 'User ' + currentUser.username
+                header.textContent = currentUser.name + ' Welcome'
+                userLink.classList.replace('nav-link', 'btn')
+                userLink.classList.remove('btn-primary')
+                userLink.href = '#'
+                */
+
+
+                signOutLink.textContent = 'Sign Out'
+                /*
+                signOutLink.classList.replace('nav-link', 'btn')
+                signOutLink.classList.remove('btn-success') */
+                signOutLink.href = 'javascript:signOut()'
+            }
+        }
+    </script>
+
+</body>
+</html>

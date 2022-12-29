@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+
+    <!-- ========= CSS FILE ========== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/table.css" />
+</head>
+<body>
+    <!-- ========= NAVBAR ========== -->
+    <div class="menu-bar">
+        <h1 class="logo">BD<span>PA</span></h1>
+
+        <input type="checkbox" id="check" />
+
+        <label for="check" class="check-btn"><i class="fas fa-bars"></i></label>
+
+        <ul>
+            <li><a class="active" href="/mma-school-project">Home</a></li>
+            <li><a href="/mma-school-project/about">About</a></li>
+            <li><a id="signoutlink" href="#"></a></li>
+            <li><a id="userlink" href="#"></a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h1 class="heading">About Us</h1>
+    </div>
+
+    <div class="image">
+        <img id="about-id" src="images/about-2.png" />
+    </div>
+
+    <div class="about-content">
+        <p>
+            <span>BDPA Police Station</span> is located in Benin City. BDPA Police Station is working in Police and law enforcement, Government agencies activities. You can contact the company at 07083937615.
+            This is a call to national duty, particularly, at this critical time that our nation is experiencing increasingly complex and pervasive security threats occasioned by terrorism, banditry, kidnapping, secessionist agitation and sundry highly organized crimes.
+            The crime record management system will help us, the officers, to contain crime and make sure that criminal documents are not missing in any form or manner.
+        </p>
+    </div>
+
+    <div class="image">
+        <img id="about-id2" src="images/about-1.jpg" />
+    </div>
+
+    <!-- ========= JS FILE ========== -->
+    <script src="https://kit.fontawesome.com/d7edf34ed6.js" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+
+
+    <script>
+
+        let userLink = document.getElementById('userlink')                  //For Register
+        let signOutLink = document.getElementById('signoutlink')            //Fot Signout and Login
+        let header = document.getElementById('hh')
+        let searchPage = document.getElementById('searchInp')
+        let victimPage = document.getElementById('victimInp')
+        let suspectPage = document.getElementById('suspectInp')
+        let crimePage = document.getElementById('crimeInp')
+
+        var currentUser = null
+
+        function getUserName() {
+            let keepLoggedIn = localStorage.getItem('keepLoggedIn')
+
+            if (keepLoggedIn == 'yes') {
+                currentUser = JSON.parse(localStorage.getItem('user'))
+            } else {
+                currentUser = JSON.parse(sessionStorage.getItem('user'))
+            }
+        }
+
+
+
+        function signOut() {
+            sessionStorage.removeItem('user')
+            localStorage.removeItem('user')
+            localStorage.removeItem('keepLoggedIn')
+            window.location = '/mma-school-project'
+        }
+
+
+        window.onload = function () {
+            getUserName()
+
+            if (currentUser == null) {
+                
+                userLink.textContent = 'Register'
+                /*
+                userLink.classList.replace('nav-link', 'btn')
+                userLink.classList.add('btn-primary') */
+                userLink.href = '/mma-school-project/register'
+
+
+                signOutLink.textContent = 'Login'
+                /*
+                signOutLink.classList.replace('nav-link', 'btn')
+                signOutLink.classList.add('btn-success') */
+                signOutLink.href = '/mma-school-project/login'
+            } else {
+                /*
+                userLink.textContent = 'User ' + currentUser.username
+                header.textContent = currentUser.name + ' Welcome'
+                userLink.classList.replace('nav-link', 'btn')
+                userLink.classList.remove('btn-primary')
+                userLink.href = '#'
+                */
+
+
+                signOutLink.textContent = 'Sign Out'
+                /*
+                signOutLink.classList.replace('nav-link', 'btn')
+                signOutLink.classList.remove('btn-success') */
+                signOutLink.href = 'javascript:signOut()'
+            }
+        }
+    </script>
+
+
+</body>
+</html>
